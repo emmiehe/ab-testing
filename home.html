@@ -1,0 +1,90 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- TODO: add additional links here! e.g. fonts, icons, more stylesheets, etc. -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <title>A/B Testing</title>
+  </head>
+
+  <body class="ml-md-5 mr-md-5 mb-md-5">
+    <!-- TODO: put your HTML code here! -->
+    <!-- nav bar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container-fluid">
+	<a class="navbar-brand font-weight-bold" href="#">Home</a>
+	<div class="collapse navbar-collapse">
+	  <ul class="nav navbar-nav ml-auto">
+	    <li class="nav-item font-weight-bold"><a href="#section-one" style="color: var(--bg-color-one);" class="nav-link">A or B</a></li>
+	    <li class="nav-item font-weight-bold"><a href="#section-two" style="color: var(--bg-color-two);" class="nav-link">Data Processing</a></li>
+	    <li class="nav-item font-weight-bold"><a href="#section-three" style="color: var(--bg-color-three);" class="nav-link">Conclusion</a></li>
+	    <!-- <li class="nav-item font-weight-bold"><a href="#section-four" style="color: var(--bg-color-four);" class="nav-link">Conclusion</a></li> -->
+	  </ul>
+	</div>	
+      </div>
+    </nav>
+
+    <div id="intro" class="d-flex flex-row flex-wrap justify-content-center align-items-center text-center">
+      <img src="./img/logo.png" alt="Responsive Redesign Logo" style="height: 20rem; box-shadow: 0 0 0 0;">
+      <h4>
+A/B testing is commonly used for testing variations of user interfaces. Here we will explore an example of A/B testing on two different layouts of the same website - <a href="https://protected-depths-51128.herokuapp.com/">Cactus</a>
+      </h4>
+    </div>
+
+    <div id="section-one" class="d-flex flex-column text-start justify-content-around align-items-center">
+      <h1 class="text-center">A or B</h1>
+      <h4>
+Cactus is a simple website for users to purchase cactus. Our two versions of the shopping page are the same in color scheme/text hierarchy but different in item layout. As we can see below, A has a grid layout and B has a list layout.
+      </h4>
+
+      <div class="d-flex flex-row justify-content-around align-items-start flex-wrap">
+	
+	  <div class="d-flex flex-column">
+	    <h4>A</h4>
+	    <img src="./img/a.png" alt="Webpage A, grid layout" style="max-width: 40rem; box-shadow: 10px 10px 5px gray;"/>
+	  </div>
+	  <div class="d-flex flex-column">
+	    <h4>B</h4>
+	    <img src="./img/b.png" alt="Webpage B, list layout" style="max-width: 30rem; box-shadow: 10px 10px 5px gray;"/>
+	  </div>
+	
+      </div>
+
+    </div>
+
+    <div id="section-two" class="d-flex flex-column justify-content-start align-items-center">
+      <h1>Data Processing & Script Running</h1>
+      <h4>
+There are 50/50 chances for a user to land on either A or B when they go to the website. I had some hypotheses on the completion time and the return rate for version A/B.</h4>
+      <h4> After letting the testing website running for a couple of days, I gathered the data from the log and extracted out<br> 1. the time each user spent on completing a purchase, and <br> 2. whether or not they returned to the shopping page after checkout. <br> I then ran a script to calculate the statistical significance for each hypothesis. </h4>
+      
+      <div class="d-flex flex-row justify-content-around align-items-start flex-wrap">
+	<div>
+	  <img src="./img/abtesting.png" alt="An infograph of the abtesting process and result." style="width: 50rem; max-width: 90%; box-shadow: 10px 10px 5px gray;"/>
+	</div>
+      </div>
+
+    </div>
+
+    <div id="section-three" class="d-flex flex-column text-center justify-content-center align-items-center">
+      <h1>Conclusion & Takeaways</h1>
+
+      
+      <h4 class="text-left">
+	<ul>
+	  <li>The A/B testing results fail to reject both null hypotheses, which means it does not take longer time to complete a purchase for A than for B and A does not have higher return rate than B.</li>
+	  <li>Whether more time to completion and a higher return rate should be considered a good thing depends on the actual business/purpose of the interface. In this case, I would like to consider more time to complete the purchase a bad thing and a higher return rate a good thing.</li>
+	  <li>One obvious limitation I encountered was not enough sample points - for the time to completion data, my effective nA + nB was 19; for the return rate data, my effective nA + nB was 20. The small sample size gives a less meaningful statistical result.</li>
+	  <li>Another limitation was that there were more than one variable changes between version A and version B - although the most significant change was the layout of the items, the shopping cart button location was also modified between the two versions. And the multiple variable changes could potentially give false positive in larger sample size testing.</li>
+	</ul>
+	</h4>
+      
+      
+    </div>    
+
+  </body>
+</html>
